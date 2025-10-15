@@ -21,9 +21,10 @@ fetchData(requestUrl)
 // You will need to use string concatenation to build the request URL
 // Now when the function it's called it should only return artwork the specified # of artworks based on the inputed search query
 // Make sure to console log the values. 
+let requestUrl2 = "https://api.artic.edu/api/v1/artworks/search?q="
 
-async function  fetchData(requestUrl) {
-    const response = await fetch(requestUrl)
+async function  fetchData2(query,size) {
+    const response = await fetch(requestUrl2 + query + "&size=" + size)
     const data = await response.json()
     console.log(data)
     return data
@@ -33,3 +34,4 @@ async function  fetchData(requestUrl) {
 // Call the new function with the user inputs and confirm it worked correctly 
 // Test with anything you'd like like 5 "cats" or 2 "flowers"
 
+fetchData2("cats",5)
